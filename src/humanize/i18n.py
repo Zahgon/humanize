@@ -75,7 +75,7 @@ def _gettext(message):
     Returns:
         str: Translated text.
     """
-    return get_translation().gettext(message)
+    pass
 
 
 def _pgettext(msgctxt, message):
@@ -91,16 +91,7 @@ def _pgettext(msgctxt, message):
     Returns:
         str: Translated text.
     """
-    # This GNU gettext function was added in Python 3.8, so for older versions we
-    # reimplement it. It works by joining `msgctx` and `message` by '4' byte.
-    try:
-        # Python 3.8+
-        return get_translation().pgettext(msgctxt, message)
-    except AttributeError:
-        # Python 3.7 and older
-        key = msgctxt + "\x04" + message
-        translation = get_translation().gettext(key)
-        return message if translation == key else translation
+    pass
 
 
 def _ngettext(message, plural, num):
@@ -134,7 +125,7 @@ def _gettext_noop(message):
     Returns:
         str: Original text, unchanged.
     """
-    return message
+    pass
 
 
 def _ngettext_noop(singular, plural):
@@ -154,7 +145,7 @@ def _ngettext_noop(singular, plural):
     Returns:
         tuple: Original text, unchanged.
     """
-    return (singular, plural)
+    pass
 
 
 def thousands_separator() -> str:
